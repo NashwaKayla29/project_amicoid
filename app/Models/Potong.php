@@ -10,7 +10,7 @@ class Potong extends Model
     use HasFactory;
 
     protected $fillable = ['id', 'nama_pemotong', 'id_bahan', 'size', 'tanggal_potong', 'id_barang'];
-    // protected $table = ['Barang'];
+    // protected $table = ['Potong'];
     public $timestamps = true;
 
     public function bahan()
@@ -21,6 +21,12 @@ class Potong extends Model
     public function barang()
     {
         return $this->belongsTo(Barang::class, 'id_barang');
+    }
+
+    public function hasilPotong()
+    {
+        return $this->hasMany(HasilPotong::class, 'id_potong'); 
+    
     }
 
 }

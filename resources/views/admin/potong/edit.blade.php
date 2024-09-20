@@ -29,10 +29,10 @@
                                     </span>
                                 @enderror
                             </div>
-                            <div class="mb-2">
+                             <div class="mb-2">
                                 <label class="form-label">Nama bahan</label>
                                 <input type="text" class="form-control @error('nama_bahan') is-invalid @enderror"
-                                    name="nama_bahan" value="{{ $potong->nama_bahan = $request->nama_bahan}}" required>
+                                    name="id_bahan" value="{{ $potong->bahan->nama_bahan }}" required>
                                 @error('nama_bahan')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>

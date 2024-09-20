@@ -95,12 +95,12 @@ class HasilPotongController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $validated = $request->validate([
-            'id_potong' => 'required',
-            'jumlah_dihasilkan' => 'required',
-            'jumlah_lolos' => 'required',
-            'jumlah_cacat' => 'required',
-        ]);
+        // $validated = $request->validate([
+        //     'id_potong' => 'required',
+        //     'jumlah_dihasilkan' => 'required',
+        //     'jumlah_lolos' => 'required',
+        //     'jumlah_cacat' => 'required',
+        // ]);
 
         $hasil_potong = new Hasil_potong();
         $hasil_potong->id_potong = $request->id_potong;

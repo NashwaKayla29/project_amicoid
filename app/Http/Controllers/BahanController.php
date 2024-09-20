@@ -87,7 +87,7 @@ class BahanController extends Controller
      * @param  \App\Models\Bahan  $bahan
      * @return \Illuminate\Http\Response
      */
-    public function update($id)
+    public function update(Request $request, $id)
     {
         $validated = $request->validate([
             'nama_bahan' => 'required',

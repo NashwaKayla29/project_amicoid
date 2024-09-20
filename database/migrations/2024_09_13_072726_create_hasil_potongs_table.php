@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('jumlah_lolos');
             $table->string('jumlah_cacat');
             $table->timestamps();
+            
             $table->foreign('id_potong')->references('id')->on('potongs')->onDelete('cascade');
         });
     }
