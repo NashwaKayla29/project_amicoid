@@ -115,10 +115,10 @@ class PotongController extends Controller
 
         $potong = Potong::findOrFail($id);
         $potong->nama_pemotong = $request->nama_pemotong;
-        $potong->nama_bahan = $request->nama_bahan;
+        $potong->id_bahan = $request->id_bahan;
         $potong->size = $request->size;
         $potong->tanggal_potong = $request->tanggal_potong;
-        $potong->nama_barang = $request->nama_barang;
+        $potong->id_barang = $request->id_barang;
         $potong->save();
         Alert::success('Success', 'Data Berhasil Membuat')->autoClose(1500);
 

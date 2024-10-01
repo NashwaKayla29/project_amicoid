@@ -68,7 +68,7 @@ class HasilPotongController extends Controller
      * @param  \App\Models\hasil_potong  $hasil_potong
      * @return \Illuminate\Http\Response
      */
-    public function show(hasil_potong $hasil_potong)
+    public function show($id)
     {
         //
     }
@@ -82,8 +82,8 @@ class HasilPotongController extends Controller
     public function edit($id)
     {
         $hasil_potong = Hasil_potong::findOrFail($id);
-        return view('admin.hasil_potong.edit', compact('hasil_potong'));
-
+        $potong = Potong::all();
+        return view('admin.hasil_potong.edit', compact('hasil_potong', 'potong'));
     }
 
     /**
@@ -102,7 +102,7 @@ class HasilPotongController extends Controller
         //     'jumlah_cacat' => 'required',
         // ]);
 
-        $hasil_potong = new Hasil_potong();
+        $hasil_potong = hasil_potong::findOrFail($id);
         $hasil_potong->id_potong = $request->id_potong;
         $hasil_potong->jumlah_dihasilkan = $request->jumlah_dihasilkan;
         $hasil_potong->jumlah_lolos = $request->jumlah_lolos;
@@ -125,7 +125,7 @@ class HasilPotongController extends Controller
         $hasil_potong = Hasil_potong::findOrFail($id);
         $hasil_potong->delete();
         Alert::success('Success', 'Data Berhasil Dihapus')->autoClose(1500);
-        return redirect()->route('hasil_potong.index');
+        return redirect()->route('HasilPotong.index');
 
     }
 }

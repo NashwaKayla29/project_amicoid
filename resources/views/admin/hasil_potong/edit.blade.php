@@ -18,16 +18,17 @@
                             enctype="multipart/form-data">
                             @method('PUT')
                             @csrf
-
                             <div class="mb-2">
-                                <label class="form-label">Nama pemotong</label>
-                                <input type="text" class="form-control @error('nama_pemotong') is-invalid @enderror"
-                                    name="nama_pemotong" value="{{ $potong->nama_pemotong }}" required>
-                                @error('nama_pemotong')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+                                <label class="form-label">Nama bahan</label>
+                                <div class="col">
+                                    <div class="input-group input-group-merge">
+                                        <select class="form-control" name="id_potong">
+                                            @foreach ($potong as $data)
+                                                <option value="{{ $data->id }}">{{ $data->nama_pemotong }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
                             </div>
                             <div class="mb-2">
                                 <label class="form-label">Jumlah dihasilkan</label>

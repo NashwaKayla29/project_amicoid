@@ -14,73 +14,158 @@
 
 @section('content')
     <div class="container">
-
         <div class="row page-titles mx-0">
             <div class="col-sm-6 p-md-0">
                 <div class="welcome-text">
                     <h4>Hi, welcome back!</h4>
-                    <p class="mb-0">Your business dashboard template</p>
+                    <p class="mb-0">Your business dashboard</p>
                 </div>
             </div>
-            {{-- <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="javascript:void(0)">Layout</a></li>
-                    <li class="breadcrumb-item active"><a href="javascript:void(0)">Blank</a></li>
-                </ol>
-            </div> --}}
         </div>
 
-
+        <!-- Menampilkan data dalam tabel secara terpisah -->
         <div class="row">
-            <div class="col-lg-3 col-sm-6">
+            <!-- Tabel Bahan -->
+            <div class="col-12">
                 <div class="card">
-                    <div class="stat-widget-one card-body">
-                        <div class="stat-icon d-inline-block">
-                            <i class="ti-money text-success border-success"></i>
-                        </div>
-                        <div class="stat-content d-inline-block">
-                            <div class="stat-text">Bahan</div>
-                            <div class="stat-digit"></i>{{ $bahan }} Data</div>
-                        </div>
+                    <div class="card-header">
+                        <h5>Tabel Bahan</h5>
+                    </div>
+                    <div class="card-body">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>No</th>
+                                    <th>Nama bahan</th>
+                                    <th>Ukuran bahan</th>
+                                    <th>Tanggal masuk</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @php
+                                    $no = 1;
+                                @endphp
+                                @foreach ($bahan as $data)
+                                    <tr>
+                                        <td>{{ $no++ }}</td>
+                                        <td>{{ $data->nama_bahan }}</td>
+                                        <td>{{ $data->ukuran_bahan }}</td>
+                                        <td>{{ $data->tanggal_masuk }}</td>
+                                    </tr>
+                                @endforeach
+
+                                <!-- Tambahkan data bahan lainnya jika ada -->
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-3 col-sm-6">
+
+            <!-- Tabel Barang -->
+            <div class="col-12">
                 <div class="card">
-                    <div class="stat-widget-one card-body">
-                        <div class="stat-icon d-inline-block">
-                            <i class="ti-user text-primary border-primary"></i>
-                        </div>
-                        <div class="stat-content d-inline-block">
-                            <div class="stat-text">Barang</div>
-                            <div class="stat-digit"></i>{{ $barang }} Data</div>
-                        </div>
+                    <div class="card-header">
+                        <h5>Tabel Barang</h5>
+                    </div>
+                    <div class="card-body">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>No</th>
+                                    <th>Nama_barang</th>
+                                    <th>Size</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @php
+                                    $no = 1;
+                                @endphp
+                                @foreach ($barang as $data)
+                                    <tr>
+                                        <td>{{ $no++ }}</td>
+                                        <td>{{ $data->nama_barang }}</td>
+                                        <td>{{ $data->size }}</td>
+                                    </tr>
+                                @endforeach
+                                <!-- Tambahkan data barang lainnya jika ada -->
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-3 col-sm-6">
+
+            <!-- Tabel Potong -->
+            <div class="col-12">
                 <div class="card">
-                    <div class="stat-widget-one card-body">
-                        <div class="stat-icon d-inline-block">
-                            <i class="ti-layout-grid2 text-pink border-pink"></i>
-                        </div>
-                        <div class="stat-content d-inline-block">
-                            <div class="stat-text">Potong</div>
-                            <div class="stat-digit"></i>{{ $potong }} Data</div>
-                        </div>
+                    <div class="card-header">
+                        <h5>Tabel Potong</h5>
+                    </div>
+                    <div class="card-body">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>No</th>
+                                    <th>Nama pemotong</th>
+                                    <th>Nama bahan</th>
+                                    <th>Size</th>
+                                    <th>Tanggal potong</th>
+                                    <th>Nama barang</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @php
+                                    $no = 1;
+                                @endphp
+                                @foreach ($potong as $data)
+                                    <tr>
+                                        <td>{{ $no++ }}</td>
+                                        <td>{{ $data->nama_pemotong }}</td>
+                                        <td>{{ $data->bahan->nama_bahan }}</td>
+                                        <td>{{ $data->size }}</td>
+                                        <td>{{ $data->tanggal_potong }}</td>
+                                        <td>{{ $data->barang->nama_barang }}</td>
+                                    </tr>
+                                @endforeach
+                                <!-- Tambahkan data potong lainnya jika ada -->
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-3 col-sm-6">
+
+            <!-- Tabel Hasil Potong -->
+            <div class="col-12">
                 <div class="card">
-                    <div class="stat-widget-one card-body">
-                        <div class="stat-icon d-inline-block">
-                            <i class="ti-layout-grid2 text-pink border-pink"></i>
-                        </div>
-                        <div class="stat-content d-inline-block">
-                            <div class="stat-text">Hasil Potong</div>
-                            <div class="stat-digit"></i>{{ $hasil_potong }} Data</div>
-                        </div>
+                    <div class="card-header">
+                        <h5>Tabel Hasil Potong</h5>
+                    </div>
+                    <div class="card-body">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>No</th>
+                                    <th>Nama pemotong</th>
+                                    <th>Jumlah dihasilkan</th>
+                                    <th>Jumlah lolos</th>
+                                    <th>Jumlah cacat</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @php
+                                    $no = 1;
+                                @endphp
+                                @foreach ($hasil_potong as $data)
+                                    <tr>
+                                        <td>{{ $no++ }}</td>
+                                        <td>{{ $data->potong->nama_pemotong }}</td>
+                                        <td>{{ $data->jumlah_dihasilkan }}</td>
+                                        <td>{{ $data->jumlah_lolos }}</td>
+                                        <td>{{ $data->jumlah_cacat }}</td>
+                                    </tr>
+                                @endforeach
+                                <!-- Tambahkan data hasil potong lainnya jika ada -->
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>

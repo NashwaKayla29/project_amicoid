@@ -26,10 +26,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $bahan = Bahan::count();
-        $barang = Barang::count();
-        $potong = Potong::count();
-        $hasil_potong = Hasil_Potong::count();
+        $bahan = Bahan::all();
+        $barang = Barang::all();
+        $potong = Potong::all();
+        $hasil_potong = Hasil_Potong::all();
 
 
         return view('home', compact('bahan', 'barang', 'potong','hasil_potong'));

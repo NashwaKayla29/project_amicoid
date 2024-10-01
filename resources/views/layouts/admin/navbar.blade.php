@@ -1,8 +1,7 @@
  <div class="nav-header">
-            <a href="index.html" class="brand-logo">
-                <img class="logo-abbr" src="{{asset('asset/images')}}" alt="">
-                <img class="logo-compact" src="{{asset('asset/images/logo-text.png')}}" alt="">
-                <img class="brand-title" src="{{asset('asset/images/logo-text.png')}}" alt="">
+            <a href="" class="brand-logo">
+                <img class="logo-abbr" src="{{asset('asset/images/logo/logo-removebg-preview.png')}}"
+                    style="display: block; max-width: 85%; auto; z-index: 10" alt="">
             </a>
 
             <div class="nav-control">

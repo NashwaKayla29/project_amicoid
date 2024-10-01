@@ -29,15 +29,17 @@
                                     </span>
                                 @enderror
                             </div>
-                             <div class="mb-2">
+                            <div class="mb-2">
                                 <label class="form-label">Nama bahan</label>
-                                <input type="text" class="form-control @error('nama_bahan') is-invalid @enderror"
-                                    name="id_bahan" value="{{ $potong->bahan->nama_bahan }}" required>
-                                @error('nama_bahan')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+                                <div class="col">
+                                    <div class="input-group input-group-merge">
+                                        <select class="form-control" name="id_bahan">
+                                            @foreach ($bahan as $data)
+                                                <option value="{{ $data->id }}">{{ $data->nama_bahan }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
                             </div>
                             <div class="mb-2">
                                 <label class="form-label">Size</label>
@@ -61,16 +63,25 @@
                             </div>
                             <div class="mb-2">
                                 <label class="form-label">Nama barang</label>
-                                <input type="text" class="form-control @error('nama_barang') is-invalid @enderror"
-                                    name="nama_barang" value="{{ $potong->barang->nama_barang }}" required>
+                                {{-- <input type="text" class="form-control @error('nama_barang') is-invalid @enderror"
+                                    name="id_barang" value="{{ $potong->barang->nama_barang }}" required>
                                 @error('nama_barang')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
-                            </div>
-                    
-                            <button type="submit" class="btn btn-sm btn-primary">Simpan</button>
+                            </div> --}}
+                                <div class="col">
+                                    <div class="input-group input-group-merge">
+                                        <select class="form-control" name="id_barang">
+                                            @foreach ($barang as $data)
+                                                <option value="{{ $data->id }}">{{ $data->nama_barang }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <button type="submit" class="btn btn-sm btn-primary">Simpan</button>
                         </form>
                     </div>
                 </div>
